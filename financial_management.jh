@@ -1,18 +1,3 @@
-entity Role {
-    name String required maxlength(50)
-}
-
-entity User {
-    firstname String required maxlength(50)
-    lastname String required maxlength(50)
-    email String required maxlength(150)
-    phone String maxlength(20)
-    username String required maxlength(50)
-    password String required maxlength(255)
-    createdAt Instant required
-    updatedAt Instant
-}
-
 entity TransactionType {
     name String required maxlength(150)
 }
@@ -31,24 +16,12 @@ entity TransactionLog {
 }
 
 relationship ManyToOne {
-    User{role} to Role
+    Transaction{transactionType(name)} to TransactionType
 }
 
-relationship ManyToOne {
-    Transaction{transactionType} to TransactionType
-}
-
-relationship ManyToOne {
-    Transaction{createdBy} to User
-}
 
 relationship ManyToOne {
     TransactionLog{transaction} to Transaction
 }
 
-relationship ManyToOne {
-    TransactionLog{actionBy} to User
-}
-
-paginate User, Role with pagination
 paginate Transaction, TransactionType, TransactionLog with pagination
