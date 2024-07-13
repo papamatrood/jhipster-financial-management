@@ -19,9 +19,16 @@ relationship ManyToOne {
     Transaction{transactionType(name)} to TransactionType
 }
 
+relationship ManyToOne {
+    Transaction{createdBy} to User
+}
 
 relationship ManyToOne {
     TransactionLog{transaction} to Transaction
+}
+
+relationship ManyToOne {
+    TransactionLog{actionBy} to User
 }
 
 paginate Transaction, TransactionType, TransactionLog with pagination
