@@ -50,6 +50,9 @@ public class CacheConfiguration {
             createCache(cm, com.cratechnologie.financialmanagement.domain.User.class.getName());
             createCache(cm, com.cratechnologie.financialmanagement.domain.Authority.class.getName());
             createCache(cm, com.cratechnologie.financialmanagement.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.cratechnologie.financialmanagement.domain.TransactionType.class.getName());
+            createCache(cm, com.cratechnologie.financialmanagement.domain.Transaction.class.getName());
+            createCache(cm, com.cratechnologie.financialmanagement.domain.TransactionLog.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
