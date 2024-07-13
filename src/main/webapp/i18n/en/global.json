@@ -8,7 +8,9 @@
       "entities": {
         "main": "Entities",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "adminAuthority": "Authority"
+        "transactionType": "Transaction Type",
+        "transaction": "Transaction",
+        "transactionLog": "Transaction Log"
       },
       "account": {
         "main": "Account",

@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (transaction()) {
+      <div>
+        <h2 data-cy="transactionDetailsHeading">
+          <span jhiTranslate="jhipsterFinancialManagementApp.transaction.detail.title">Transaction</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ transaction()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.amount">Amount</span></dt>
+          <dd>
+            <span>{{ transaction()!.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.description">Description</span></dt>
+          <dd>
+            <span>{{ transaction()!.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.date">Date</span></dt>
+          <dd>
+            <span>{{ transaction()!.date | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.createdAt">Created At</span></dt>
+          <dd>
+            <span>{{ transaction()!.createdAt | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.updatedAt">Updated At</span></dt>
+          <dd>
+            <span>{{ transaction()!.updatedAt | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.transactionType">Transaction Type</span></dt>
+          <dd>
+            @if (transaction()!.transactionType) {
+              <div>
+                <a [routerLink]="['/transaction-type', transaction()!.transactionType?.id, 'view']">{{
+                  transaction()!.transactionType?.name
+                }}</a>
+              </div>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+        </button>
+
+        <button type="button" [routerLink]="['/transaction', transaction()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

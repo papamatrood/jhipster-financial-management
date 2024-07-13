@@ -1,0 +1,18 @@
+{
+  "annotations": {
+    "changelogDate": "20240713102606"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "150"
+    }
+  ],
+  "name": "TransactionType",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no"
+}

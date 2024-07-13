@@ -1,0 +1,26 @@
+{
+  "jhipsterFinancialManagementApp": {
+    "transactionLog": {
+      "home": {
+        "title": "TransactionLogs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Transaction Log",
+        "createOrEditLabel": "Créer ou éditer un Transaction Log",
+        "notFound": "Aucun Transaction Log trouvé"
+      },
+      "created": "Un nouveau Transaction Log a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Transaction Log avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Transaction Log avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Transaction Log {{ id }} ?"
+      },
+      "detail": {
+        "title": "Transaction Log"
+      },
+      "id": "ID",
+      "action": "Action",
+      "actionAt": "Action At",
+      "transaction": "Transaction"
+    }
+  }
+}

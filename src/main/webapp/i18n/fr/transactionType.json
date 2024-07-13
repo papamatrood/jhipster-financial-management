@@ -1,0 +1,24 @@
+{
+  "jhipsterFinancialManagementApp": {
+    "transactionType": {
+      "home": {
+        "title": "TransactionTypes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Transaction Type",
+        "createOrEditLabel": "Créer ou éditer un Transaction Type",
+        "notFound": "Aucun Transaction Type trouvé"
+      },
+      "created": "Un nouveau Transaction Type a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Transaction Type avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Transaction Type avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Transaction Type {{ id }} ?"
+      },
+      "detail": {
+        "title": "Transaction Type"
+      },
+      "id": "ID",
+      "name": "Name"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "annotations": {
+    "changelogDate": "20240713102608"
+  },
+  "applications": "*",
+  "fields": [
+    {
+      "fieldName": "action",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "actionAt",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "TransactionLog",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "transaction",
+      "relationshipName": "transaction",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no"
+}
