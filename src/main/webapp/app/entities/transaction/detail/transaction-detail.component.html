@@ -47,6 +47,10 @@
               </div>
             }
           </dd>
+          <dt><span jhiTranslate="jhipsterFinancialManagementApp.transaction.user">User</span></dt>
+          <dd>
+            <span>{{ transaction()!.user?.login }}</span>
+          </dd>
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

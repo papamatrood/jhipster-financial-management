@@ -34,7 +34,7 @@ public class TransactionLog implements Serializable {
     private Instant actionAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "transactionType" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "transactionType", "user" }, allowSetters = true)
     private Transaction transaction;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

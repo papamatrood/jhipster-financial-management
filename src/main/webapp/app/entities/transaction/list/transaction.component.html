@@ -83,6 +83,12 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="user.login">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterFinancialManagementApp.transaction.user">User</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -105,6 +111,9 @@
                     }}</a>
                   </div>
                 }
+              </td>
+              <td>
+                {{ transaction.user?.login }}
               </td>
               <td class="text-end">
                 <div class="btn-group">

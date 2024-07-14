@@ -39,6 +39,7 @@ type TransactionFormGroupContent = {
   createdAt: FormControl<TransactionFormRawValue['createdAt']>;
   updatedAt: FormControl<TransactionFormRawValue['updatedAt']>;
   transactionType: FormControl<TransactionFormRawValue['transactionType']>;
+  user: FormControl<TransactionFormRawValue['user']>;
 };
 
 export type TransactionFormGroup = FormGroup<TransactionFormGroupContent>;
@@ -72,6 +73,7 @@ export class TransactionFormService {
       }),
       updatedAt: new FormControl(transactionRawValue.updatedAt),
       transactionType: new FormControl(transactionRawValue.transactionType),
+      user: new FormControl(transactionRawValue.user),
     });
   }
 

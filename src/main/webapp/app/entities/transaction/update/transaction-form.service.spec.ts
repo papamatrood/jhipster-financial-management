@@ -26,6 +26,7 @@ describe('Transaction Form Service', () => {
             createdAt: expect.any(Object),
             updatedAt: expect.any(Object),
             transactionType: expect.any(Object),
+            user: expect.any(Object),
           }),
         );
       });
@@ -42,6 +43,7 @@ describe('Transaction Form Service', () => {
             createdAt: expect.any(Object),
             updatedAt: expect.any(Object),
             transactionType: expect.any(Object),
+            user: expect.any(Object),
           }),
         );
       });

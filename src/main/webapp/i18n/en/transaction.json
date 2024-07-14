@@ -23,7 +23,8 @@
       "date": "Date",
       "createdAt": "Created At",
       "updatedAt": "Updated At",
-      "transactionType": "Transaction Type"
+      "transactionType": "Transaction Type",
+      "user": "User"
     }
   }
 }

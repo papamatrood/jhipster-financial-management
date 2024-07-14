@@ -12,6 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.cratechnologie.financialmanagement.IntegrationTest;
 import com.cratechnologie.financialmanagement.domain.Transaction;
 import com.cratechnologie.financialmanagement.repository.TransactionRepository;
+import com.cratechnologie.financialmanagement.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.persistence.EntityManager;
 import java.math.BigDecimal;
@@ -70,6 +71,9 @@ class TransactionResourceIT {
 
     @Autowired
     private TransactionRepository transactionRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Mock
     private TransactionRepository transactionRepositoryMock;

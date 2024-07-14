@@ -1,0 +1,61 @@
+application {
+  config {
+    applicationType monolith
+    authenticationType jwt
+    baseName jhipsterFinancialManagement
+    blueprints []
+    buildTool maven
+    cacheProvider ehcache
+    clientFramework angular
+    clientPackageManager npm
+    creationTimestamp 1720804063721
+    databaseType sql
+    devDatabaseType mysql
+    enableHibernateCache true
+    enableSwaggerCodegen false
+    enableTranslation true
+    jhiPrefix jhi
+    jhipsterVersion "8.6.0"
+    jwtSecretKey "NDg1YjllZDUwYTY3M2I1NzdmYzNmOWMwMTliZmI2MGE2NjEwYmNmY2RhZTYzNzFmMjA3NTllNmI5MTRlZjVlZTgxYTgyMTNmN2NiODMwOTEyMjZmYjI4MjNjODczOTViNTFjMzJjM2ZhODM4NzJlNjBiOTAyOTA3MGY3YWVlZGQ="
+    languages [fr, en]
+    messageBroker false
+    nativeLanguage fr
+    packageName com.cratechnologie.financialmanagement
+    prodDatabaseType mysql
+    searchEngine false
+    serverPort 8080
+    serviceDiscoveryType false
+    testFrameworks []
+    websocket false
+    withAdminUi true
+  }
+
+  entities Transaction, TransactionLog, TransactionType
+}
+
+@ChangelogDate("20240713102607")
+entity Transaction {
+  amount BigDecimal required
+  description String maxlength(255)
+  date Instant required
+  createdAt Instant required
+  updatedAt Instant
+}
+@ChangelogDate("20240713102608")
+entity TransactionLog {
+  action String required maxlength(50)
+  actionAt Instant required
+}
+@ChangelogDate("20240713102606")
+entity TransactionType {
+  name String required maxlength(150)
+}
+
+relationship ManyToOne {
+  Transaction{user(login)} to User with builtInEntity
+  Transaction{transactionType(name)} to TransactionType
+  TransactionLog{transaction} to Transaction
+}
+
+paginate Transaction, TransactionLog, TransactionType with pagination
+search Transaction, TransactionLog, TransactionType with no

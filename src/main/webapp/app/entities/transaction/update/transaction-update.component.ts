@@ -9,8 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ITransactionType } from 'app/entities/transaction-type/transaction-type.model';
 import { TransactionTypeService } from 'app/entities/transaction-type/service/transaction-type.service';
-import { ITransaction } from '../transaction.model';
+import { IUser } from 'app/entities/user/user.model';
+import { UserService } from 'app/entities/user/service/user.service';
 import { TransactionService } from '../service/transaction.service';
+import { ITransaction } from '../transaction.model';
 import { TransactionFormService, TransactionFormGroup } from './transaction-form.service';
 
 @Component({
@@ -24,10 +26,12 @@ export class TransactionUpdateComponent implements OnInit {
   transaction: ITransaction | null = null;
 
   transactionTypesSharedCollection: ITransactionType[] = [];
+  usersSharedCollection: IUser[] = [];
 
   protected transactionService = inject(TransactionService);
   protected transactionFormService = inject(TransactionFormService);
   protected transactionTypeService = inject(TransactionTypeService);
+  protected userService = inject(UserService);
   protected activatedRoute = inject(ActivatedRoute);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -35,6 +39,8 @@ export class TransactionUpdateComponent implements OnInit {
 
   compareTransactionType = (o1: ITransactionType | null, o2: ITransactionType | null): boolean =>
     this.transactionTypeService.compareTransactionType(o1, o2);
+
+  compareUser = (o1: IUser | null, o2: IUser | null): boolean => this.userService.compareUser(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ transaction }) => {
@@ -88,6 +94,7 @@ export class TransactionUpdateComponent implements OnInit {
       this.transactionTypesSharedCollection,
       transaction.transactionType,
     );
+    this.usersSharedCollection = this.userService.addUserToCollectionIfMissing<IUser>(this.usersSharedCollection, transaction.user);
   }
 
   protected loadRelationshipsOptions(): void {
@@ -103,5 +110,11 @@ export class TransactionUpdateComponent implements OnInit {
         ),
       )
       .subscribe((transactionTypes: ITransactionType[]) => (this.transactionTypesSharedCollection = transactionTypes));
+
+    this.userService
+      .query()
+      .pipe(map((res: HttpResponse<IUser[]>) => res.body ?? []))
+      .pipe(map((users: IUser[]) => this.userService.addUserToCollectionIfMissing<IUser>(users, this.transaction?.user)))
+      .subscribe((users: IUser[]) => (this.usersSharedCollection = users));
   }
 }
