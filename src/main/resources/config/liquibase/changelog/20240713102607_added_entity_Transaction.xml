@@ -32,14 +32,18 @@
             <column name="transaction_type_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="user_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
         </createTable>
         <dropDefaultValue tableName="transaction" columnName="date" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="transaction" columnName="created_at" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="transaction" columnName="updated_at" columnDataType="${datetimeType}"/>
+    </changeSet>
+    <changeSet id="20240713102607-2" author="y.doumbia">
+        <addColumn tableName="transaction">
+            <column name="user_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->

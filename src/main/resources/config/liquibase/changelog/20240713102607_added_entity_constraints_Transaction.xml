@@ -16,7 +16,8 @@
                                  referencedColumnNames="id"
                                  referencedTableName="transaction_type"
                                  />
-
+    </changeSet>
+    <changeSet id="20240713102607-3" author="y.doumbia">
         <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="transaction"
                                  constraintName="fk_transaction__user_id"
